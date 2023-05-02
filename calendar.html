@@ -1,0 +1,119 @@
+[[$Header]]
+[[$TopBanner]]
+[[set_local_date]]
+<div class="container-xxl">
+<h1 class="pagetitle mt-5 mb-4">[[*pagetitle]]</h1>
+</div>
+
+[[current-month-returner]]
+
+<div>
+<!-- <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 display-block"> -->
+<section id="statistic-table" class="card-2" style="min-width: 100%; min-height: 200px; display: flex; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none;">
+        [[getImageList?
+            &tvname=`months-calendar`
+            &tpl=`listMonths`
+            &docid=`9593`]]
+ 
+<style>
+    .card-2::-webkit-scrollbar {
+      display: none;
+    }
+    
+</style>
+
+</div> 
+
+<div class="container-xxl" style="margin-top:30px; margin-bottom:30px;">
+[[!mSearchForm? &pageId=`9715` &tplForm=`tpl.mSearch2.form.CALENDAR` &parents=`9516`]]
+</div>
+
+
+<div class="container-xxl">
+<div id="pdopage">
+    [[!pdoPage?
+    &element=`pdoArchive`
+    &sortby=`publishedon`
+    &dateField=`publishedon`
+    &tplYear=``
+    &tplDay=``
+    &tplMonth=`@INLINE <h4>{$month_name} {$year} <sup>({$count})</sup></h4><ul>{$wrapper}</ul>`
+    &includeContent=`1`
+    &parents=`[[*id]]`
+    &depth=`2`
+    &showHidden=`1`
+    &tpl=`EvCalendarRowTpl`
+    &includeTVs=`thumbnail,thumbnailCrop`
+    &hideContainers=`1`
+    &limit=`22`
+    &tplPageFirst=`@INLINE <li class="page-item"><a href="[[+href]]" class="page-link">&larr;</a></li>`
+    &tplPageLast=`@INLINE <li class="page-item"><a href="[[+href]]" class="page-link">&rarr;</a></li>`
+    &tplPageFirstEmpty=``
+    &tplPageLastEmpty=``
+    &sortdir=`ASC`
+    &where=`{"publishedon:>=":[[!+nowdate:default=`-6 hours`:strtotime]]}`
+    ]]
+
+
+
+    [[!+page.nav]]
+</div>
+[[*content]]
+
+<!-- ArticlesRowTpl &tpl=`OrgRowTpl` -->
+
+</div>
+[[$Footer]]
+
+
+<script>
+    (function() {
+
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('statistic-table').scrollLeft -= (delta*70); // Multiplied by 50
+        e.preventDefault();
+    }
+    if (document.getElementById('statistic-table').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('statistic-table').addEventListener("mousewheel", scrollHorizontally, false);
+        // Firefox
+        document.getElementById('statistic-table').addEventListener("DOMMouseScroll", scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('statistic-table').attachEvent("onmousewheel", scrollHorizontally);
+    }
+
+})();
+
+
+//сниппет который возвращает текущую "дата" у текущего месяца
+//если клик, то месяц меняется - дата забирается из id
+//если изменился, то publishedon сравнивается не с nowdate, а с датой месяца
+
+const el = document.getElementById('1661979600');
+el.scrollIntoView({block: "center", behavior: "smooth", inline: "center"});
+el.style.backgroundColor = '#C0C0C0';
+
+
+
+document.addEventListener("click", function(e) {
+  console.log(e.target);
+  if (e.target.classList.contains('card-month')) {
+      let new_id = document.getElementById('1664571600');
+      new_id.scrollIntoView({block: "center", behavior: "smooth", inline: "center"});
+      new_id.style.backgroundColor = '#C0C0C0';
+      
+      alert(new_i);
+  }
+});
+
+
+
+  // let new_i = console.log(e.target.id);
+  // let new_id = document.getElementById(console.log(e.target.id));
+  
+
+
+</script>

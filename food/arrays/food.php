@@ -1,0 +1,51 @@
+<?php
+return [
+    [
+        'id' => 1,
+        'name' => 'Круассан',
+        'calories' => '100',
+        'fat' => '5',
+        'proteins' => '10',
+        'carbohydrates' => '50',
+    ],
+    [
+        'id' => 2,
+        'name' => 'Хачапури',
+        'calories' => '150',
+        'fat' => '50',
+        'proteins' => '20',
+        'carbohydrates' => '30',
+    ],
+    [
+        'id' => 3,
+        'name' => 'Шашлык',
+        'calories' => '150',
+        'fat' => '40',
+        'proteins' => '70',
+        'carbohydrates' => '20',
+    ],
+    [
+        'id' => 4,
+        'name' => 'Кебаб',
+        'calories' => '150',
+        'fat' => '50',
+        'proteins' => '60',
+        'carbohydrates' => '10',
+    ],
+    [
+        'id' => 5,
+        'name' => 'Шаверма',
+        'calories' => '130',
+        'fat' => '20',
+        'proteins' => '40',
+        'carbohydrates' => '30',
+    ],
+    [
+        'id' => 6,
+        'name' => 'Салат из свежих овощей',
+        'calories' => '40',
+        'fat' => '2',
+        'proteins' => '10',
+        'carbohydrates' => '10',
+    ],
+];
